@@ -1,0 +1,145 @@
+import java.util.*;
+import java.io.*;
+class Customer{
+    private int userId;
+    private String emailId,password,firstName,lastName,city,gender;
+    private long phoneNumber;
+    public Customer()
+    {
+        
+    }
+    public Customer(int userId,String emailId,String password,String firstName,String lastName,String city,String gender,long phoneNumber)
+    {
+        this.userId=userId;
+        this.emailId=emailId;
+        this.password=password;
+        this.firstName=firstName;
+        this.lastName=lastName;
+        this.city=city;
+        this.gender=gender;
+        this.phoneNumber=phoneNumber;
+    }
+    /*userId*/
+    
+    public int getUserId()
+    {
+        return this.userId;
+    }
+    public void setUserId(int userId)
+    {
+        this.userId=userId;
+    }
+    
+    //email
+     public String getEmailId()
+    {
+        return this.emailId;
+    }
+    public void setUserId(String emailId)
+    {
+        this.emailId=emailId;
+    }
+    
+    //password
+     public String getPassword()
+    {
+        return this.password;
+    }
+    public void setPassword(String password)
+    {
+        this.password=password;
+    }
+    
+    //firstName
+     public String getFirstName()
+    {
+        return this.firstName;
+    }
+    public void setFirstName(String firstName)
+    {
+        this.firstName=firstName;
+    }
+    //lastName
+     public String getLastName()
+    {
+        return this.lastName;
+    }
+    public void setLastName(String lastName)
+    {
+        this.lastName=lastName;
+    }
+    //city
+     public String getCity()
+    {
+        return this.city;
+    }
+    public void setCity(String city)
+    {
+        this.city=city;
+    }
+    //gender
+     public String getGender()
+    {
+        return this.gender;
+    }
+    public void setGender(String gender)
+    {
+        this.gender=gender;
+    }
+    //phone
+     public long getPhoneNumber()
+    {
+        return this.phoneNumber;
+    }
+    public void setPhoneNumber(long phoneNumber)
+    {
+        this.phoneNumber=phoneNumber;
+    }
+    
+    @Override
+    public String toString()
+    {
+        return "Customer [userId="+userId+", emailId="+emailId+", password="+password+", firstName="+firstName+", lastName="+lastName+", city="+city+", gender="+gender+", phoneNumber="+phoneNumber+"]";
+    }
+}
+
+interface CustomerService{
+    void createCustomer(Customer customer);
+    Customer[] getCustomer();
+    Customer updateCustomer(Customer customer);
+}
+class CustomerServiceImpl implements CustomerService
+{
+    public static Customer customerArray[]=new Customer[5];
+    public static int count=0;
+    @Override
+    public void createCustomer(Customer customer)
+    {
+        customerArray[count++]=customer;
+    }
+    @Override
+    public Customer[] getCustomer()
+    {
+        return customerArray;
+    }
+    @Override
+    public Customer updateCustomer(Customer customer)
+    {
+        for(int i=0;i<5;i++)
+        {
+            if(customer.getUserId()==customerArray[i].getUserId())
+            {
+                customerArray[i]=customer;
+                return customerArray[i];
+            }
+        }
+        return customer;
+    }
+}
+class Source{
+    public static void main(String args[])
+    {
+     Customer customer=new Customer(101,"raj@gmail.com","password","Raj","Kumar","Hyderabad","Male",9001318761L);
+
+    }
+}

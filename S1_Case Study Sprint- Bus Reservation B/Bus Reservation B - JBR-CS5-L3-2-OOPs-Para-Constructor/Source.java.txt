@@ -1,0 +1,127 @@
+import java.util.*;
+
+class Customer{
+    private int userId;
+    private String emailId;
+    private String password;
+    private String firstName;
+    private String lastName;
+    private String city;
+    private String gender;
+    private long phoneNumber;
+    //constructor
+    public Customer()
+    {
+        
+    }
+    public Customer( int userId,String emailId,String password,String firstName,String lastName,String city,String gender,long phoneNumber)
+    {
+        this.userId=userId;
+        this.emailId=emailId;
+        this.password=password;
+        this.firstName=firstName;
+        this.lastName=lastName;
+        this.city=city;
+        this.gender=gender;
+        this.phoneNumber=phoneNumber;
+        
+    }
+    
+    //userId
+    public int getUserid()
+    {
+        return userId;
+    }
+    public void setUserid(int userId)
+    {
+        this.userId=userId;
+    }
+    //email
+    public String getEmailId()
+    {
+        return emailId;
+    }
+    public void setEmailId(String emailId)
+    {
+        this.emailId=emailId;
+    }
+    //password
+    public String getPassword()
+    {
+        return password;
+    }
+    public void setPassword(String password)
+    {
+        this.password=password;
+    }
+    
+    //firstName
+    public String getFirstName()
+    {
+        return firstName;
+    }
+    public void setFirstName(String firstName)
+    {
+        this.firstName=firstName;
+    }
+    
+    //lastName
+    public String getLastName()
+    {
+        return lastName;
+    }
+    public void setLastName(String lastName)
+    {
+        this.lastName=lastName;
+    }
+    
+    //gender
+    public String getGender()
+    {
+        return gender;
+    }
+    public void setGender(String gender)
+    {
+        this.gender=gender;
+    }
+    //city
+    public String getCity()
+    {
+        return city;
+    }
+    public void setCity(String city)
+    {
+        this.city=city;
+    }
+    //phoneNumber
+    public long getPhoneNumber()
+    {
+        return phoneNumber;
+    }
+    public void setPhoneNumber(long phoneNumber)
+    {
+        this.phoneNumber=phoneNumber;
+    }
+    
+    @Override
+    public String toString()
+    {
+        return "Customer [userid="+userId+", emailid="+emailId+", password="+password+", firstName="+firstName+", lastName="+lastName+", city="+city+", gender="+gender+", phoneNo="+phoneNumber+"]";
+    }
+}
+
+class ServiceDetails{
+    ServiceDetails()
+    {
+        
+    }
+}
+public class Source{
+    public static void main(String args[])
+    {
+        Customer customer=new Customer(1001,"raju@gmail.com","password@123","Raj","Kumar","Bangalore","Male",123456789);
+        ServiceDetails sd=new ServiceDetails();
+        String result=customer.toString();
+        System.out.println(result);
+    }
+}
