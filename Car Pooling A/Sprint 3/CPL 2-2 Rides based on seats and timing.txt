@@ -1,0 +1,9 @@
+/* Rides based on seats and timing */
+alter session set current_schema = carpooling;
+SET heading OFF
+
+SELECT RIDE_ID, FROM_LOCATION, TO_LOCATION, SEATS_LEFT,SEATS_TOTAL, RIDE_PROVIDER_ID,START_ON,ENDS_ON,ISSTARTED,ISFINISHED
+FROM RIDE 
+WHERE
+SEATS_LEFT=1
+AND ISSTARTED='no';
